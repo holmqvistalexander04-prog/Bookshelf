@@ -59,7 +59,7 @@ public class Bookshelf {
         }
         return count;
     }
-
+    /** Returnerar hur många platser hyllan har*/
     public int getCapacity() {
         return books.length;
     }

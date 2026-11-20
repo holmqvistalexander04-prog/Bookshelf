@@ -13,12 +13,7 @@ public class Main {
         System.out.println("Välkommen till Bokhyllan!");
 
         while (running) {
-            System.out.println("\n=== MENY ===");
-            System.out.println("1. Sätt in en bok");
-            System.out.println("2. Ta ut en bok");
-            System.out.println("3. Visa bokhyllan");
-            System.out.println("4. Sök bok med ISBN");
-            System.out.println("5. Avsluta");
+            printMenu();
 
             int choice = readInteger(scanner, "Ditt val: ");
 
@@ -109,5 +104,14 @@ public class Main {
             }
             System.out.println("Du måste skriva något. Försök igen.");
         }
+    }
+
+    private static void printMenu(){
+        System.out.println("\n=== MENY ===");
+        System.out.println("1. Sätt in en bok");
+        System.out.println("2. Ta ut en bok");
+        System.out.println("3. Visa bokhyllan");
+        System.out.println("4. Sök bok med ISBN");
+        System.out.println("5. Avsluta");
     }
 }
