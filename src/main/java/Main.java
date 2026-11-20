@@ -16,7 +16,7 @@ public class Main {
         while (running) {
             printMenu();
 
-            int choice = readInteger(scanner, "Ditt val: ");
+            int choice = readInteger("Ditt val: ");
 
             switch (choice) {
                 case 1:
@@ -45,9 +45,9 @@ public class Main {
     }
 
     /** Läser ett heltal utan att krascha om användaren skriver text. */
-    private static int readInteger(Scanner scanner, String question) {
+    private static int readInteger(String question) {
         System.out.print(question);
-        String input = scanner.nextLine();
+        String input = Main.scanner.nextLine();
         try {
             return Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
@@ -56,10 +56,10 @@ public class Main {
     }
 
     /** Kräver ett svar som inte bara är tom text. */
-    private static String readNonEmpty(Scanner scanner, String question) {
+    private static String readNonEmpty(String question) {
         while (true) {
             System.out.print(question);
-            String answer = scanner.nextLine().trim();
+            String answer = Main.scanner.nextLine().trim();
             if (!answer.isEmpty()) {
                 return answer;
             }
@@ -81,9 +81,9 @@ public class Main {
             System.out.println("Bokhyllan är full! Du kan inte lägga till fler böcker.");
             return;
         }
-        String isbn = readNonEmpty(scanner, "ISBN: ");
-        String title = readNonEmpty(scanner, "Titel: ");
-        String author = readNonEmpty(scanner, "Författare: ");
+        String isbn = readNonEmpty("ISBN: ");
+        String title = readNonEmpty("Titel: ");
+        String author = readNonEmpty("Författare: ");
         Book newBook = new Book(isbn, title, author);
 
         if (bookshelf.addBook(newBook)) {
@@ -96,7 +96,7 @@ public class Main {
 
     private static void removeBook(){
         bookshelf.printContents();
-        int place = readInteger(scanner, "Vilken plats (1-10) vill du tömma? ");
+        int place = readInteger("Vilken plats (1-10) vill du tömma? ");
         if (place < 1 || place > bookshelf.getCapacity()) {
             System.out.println("Ogiltig plats. Välj mellan 1 och 10.");
             return;
@@ -112,7 +112,7 @@ public class Main {
     }
 
     private static void searchBook(){
-        String searchIsbn = readNonEmpty(scanner, "Vilket ISBN söker du? ");
+        String searchIsbn = readNonEmpty("Vilket ISBN söker du? ");
         Book foundBook = bookshelf.findBookByIsbn(searchIsbn);
         if (foundBook == null) {
             System.out.println("Ingen bok med det ISBN-numret finns på hyllan.");
