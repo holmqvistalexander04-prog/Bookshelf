@@ -5,8 +5,8 @@ import java.util.Scanner;
  * Programmet använder en enkel textmeny.
  */
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Bookshelf bookshelf = new Bookshelf();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Bookshelf bookshelf = new Bookshelf();
 
     public static void main(String[] args) {
         boolean running = true;
